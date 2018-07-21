@@ -1,5 +1,5 @@
 {
-  "name": "yarcode/yii2-async-mailer",
+  "name": "accessd/yii2-async-mailer",
   "description": "Async mailer decorator for Yii2",
   "type": "yii2-extension",
   "keywords": [
