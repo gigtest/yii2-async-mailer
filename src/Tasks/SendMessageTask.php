@@ -42,13 +42,22 @@ class SendMessageTask extends AsyncTask
         // $validator->debug = true;
         $results   = $validator->validate();
         $emailIsValid = $results[$email];
-        echo "email is valid: $emailIsValid\n";
+        $this->log("$email is valid: $emailIsValid subject: {$this->mailMessage->subject}\n");
 
         if ($emailIsValid) {
-            return $this->mailMessage->send();
-            return $asyncMailer->getSyncMailer()->send($this->mailMessage);
+            try {
+                return $this->mailMessage->send();
+            } catch (\Swift_RfcComplianceException $e) {
+                $this->log("swift exception: " . $e);
+            }
         } else {
             return false;
         }
+    }
+
+    private function log($msg)
+    {
+        $timestamp = date();
+        echo "[$timestamp] $msg\n";
     }
 }
