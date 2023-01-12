@@ -57,7 +57,7 @@ class SendMessageTask extends AsyncTask
 
     private function log($msg)
     {
-        $timestamp = date();
+        $timestamp = date('Y-m-d H:i:s');
         echo "[$timestamp] $msg\n";
     }
 }
