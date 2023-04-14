@@ -23,7 +23,7 @@
   },
   "require": {
     "yiisoft/yii2": "~2",
-    "bazilio/yii2-async": "^0.2.0",
+    "bazilio/yii2-async": "*",
     "yarcode/yii2-daemon": "^0.3",
     "zytzagoo/smtp-validate-email": "^1.0"
   },
