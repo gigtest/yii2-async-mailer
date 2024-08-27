@@ -30,6 +30,10 @@ class SendMultipleMessagesTask extends AsyncTask
             throw new InvalidConfigException('Mailer must be an instance of ' . Mailer::class);
         }
 
+        array_map(function ($mailMessage) {
+            $mailMessage->mailer = $mailMessage->mailer ?? \Yii::$app->getMailer()->getSyncMailer();
+        }, $this->mailMessages);
+
         return $asyncMailer->getSyncMailer()->sendMultiple($this->mailMessages);
     }
 }
