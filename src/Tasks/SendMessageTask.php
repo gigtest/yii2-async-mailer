@@ -34,7 +34,7 @@ class SendMessageTask extends AsyncTask
             throw new InvalidConfigException('Mailer must be an instance of ' . Mailer::class);
         }
 
-        $this->mailMessage->mailer = $mailMessage->mailer ?? \Yii::$app->getMailer()->getSyncMailer();
+        $this->mailMessage->mailer = $this->mailMessage->mailer ?? \Yii::$app->getMailer()->getSyncMailer();
 
         $to = $this->mailMessage->getTo();
         $email     = array_keys($to)[0];
